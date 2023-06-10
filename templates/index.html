@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>chatMokona</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" >
+    </head>
+    
+    <body>
+        <header>
+            <div class = "header">
+                <h1>ボク、もこな。おしゃべりしよう。</h1>
+            </div>
+        </header>
+        <div class="whole">
+            <div class="main_content">
+                <aside>
+                    <div style="text-align: center">
+                        <img src="{{ url_for('static', filename='cat.png') }}" width = "300" height = "300">
+                    </div>
+                </aside>
+
+                <main>
+                    <div class = "content" id = "content">
+                        {% for conv in all_conv %}
+                        <p>{{ conv.name }}：{{conv.text}}</p>
+                        {% endfor %}
+                    </div>
+                </main>
+            </div>
+            
+            <div class="input_text">
+                <form action="/" method="post" name = "form1">
+                    <div class = "message">
+                        <input type="text" id="comment" name="comment" class="textbox">
+                        <input type="submit" value="送信する" id = "button">
+                    </div>
+                </form>
+                <script language="javascript" type="text/javascript">
+                    const comment = document.getElementById('comment');
+                    const button = document.getElementById('button');
+                    var name = "あなた"
+                    let element = document.getElementById('content');
+                    console.log("-----------------");
+                    console.log(element.innerHTML);
+                    console.log("-----------------");
+
+                    button.addEventListener('click', (e) => {
+                        // デフォルトのイベントをキャンセル
+                        e.preventDefault();
+
+                        if(comment.value.length == 0) {
+                            alert("テキストを入力してね！")
+                        } 
+                        else {
+                            let element = document.getElementById('content');
+                            element.innerHTML += "<p>" + name + "：" + comment.value;
+                            console.log("-----------------");
+                            console.log(element.innerHTML);
+                            console.log("-----------------");
+                            document.form1.submit();
+                        }
+                    });
+                </script>
+            </div>
+            <div class="credit">
+                イラスト：https://www.shigureni.com/
+            </div>
+        </div>
+    </body>
+</html>

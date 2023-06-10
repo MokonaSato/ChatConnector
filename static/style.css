@@ -1,0 +1,49 @@
+body {
+    background-color: #f8f8ff;
+    padding: 10px;
+}
+
+.whole{
+    /*background-color: #e1ff00;*/
+    width: 80%
+}
+
+.main_content{
+    /*background-color: #c300ff;*/
+    display: flex;
+}
+
+aside {
+    /*background-color: #0000ff;*/
+    width: 300px;
+    flex:0 0 auto;
+    margin: 10px;
+}
+
+main {
+    /*background-color: #ff00e6;*/
+    width: 70%;
+    flex:3 1 auto;
+    margin: 10px;
+    padding: 10px;
+}
+
+.input_text{
+    /*background-color: #f60202;*/
+    padding: 10px;
+}
+
+.message{
+    display: flex;
+    flex-flow: nowrap row;
+}
+
+input.textbox{
+    width: 95%;
+    height: 30px;
+}
+
+.credit{
+    margin: 10px;
+    width: 100%
+}
